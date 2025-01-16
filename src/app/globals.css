@@ -7,3 +7,17 @@
   margin: 0 auto;
   padding: 0 20px;
 }
+
+.logo {
+  position: relative;
+}
+.logo::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: #ec1552;
+  border-radius: 100%;
+  bottom: 4px;
+  right: -6px;
+}

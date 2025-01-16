@@ -17,7 +17,7 @@ const Navbar = () => {
       <header className="w-full fixed  z-10 py-4">
         <nav className="flex container justify-between items-center">
           <a href="#top">
-            <Image src={assets.logo} alt="Shahzaib's Portfolio Logo" className="w-28" />
+            <h1 className="text-2xl font-bold logo">Shahzaib</h1>
           </a>
 
           <ul className="hidden md:flex px-12 py-3 rounded-full gap-6 lg:gap-8 bg-white shadow-sm bg-opacity-50">
