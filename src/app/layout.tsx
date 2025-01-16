@@ -28,7 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${outFit.variable} ${ovo.variable} antialiased font-outfit`}>
+      <body
+        className={`${outFit.variable} ${ovo.variable} antialiased font-outfit leading-8 overflow-x-hidden`}
+      >
         <Navbar />
         <main>{children}</main>
         <Footer />
