@@ -17,6 +17,10 @@ export default {
         outfit: ["var(--font-outfit)", "sans-serif"],
         ovo: ["var(--font-ovo)", "sans-serif"],
       },
+      boxShadow: {
+        black: "4px 4px 0px #000",
+        white: "4px 4px 0px #fff",
+      },
     },
   },
   plugins: [],
