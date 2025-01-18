@@ -12,7 +12,7 @@ const Header = () => {
           width={150}
           height={150}
         />
-        <h3 className="flex mt-4 items-end text-xl md:text-2xl mb-3 font-ovo">
+        <h3 className="flex mt-4 items-end justify-center gap-1  text-xl md:text-2xl mb-3 font-ovo">
           Hi! I&apos;m Muhammad Shahzaib Afzal{" "}
           <Image src={assets.hand_icon} alt="Hand Icon" className="w-6" />
         </h3>
