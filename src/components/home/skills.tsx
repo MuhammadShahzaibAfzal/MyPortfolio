@@ -10,10 +10,12 @@ const Skills = () => {
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
             {skillsList.map(({ category, skills }, index) => (
               <li
-                className="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 transition-all duration-300 hover:shadow-black"
+                className="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 transition-all duration-300 hover:shadow-black hover:dark:shadow-white hover:dark:bg-darkHover "
                 key={index}
               >
-                <h3 className="my-4 font-semibold text-gray-700">{category}</h3>
+                <h3 className="my-4 font-semibold text-gray-700 dark:text-white">
+                  {category}
+                </h3>
                 <div className="flex flex-wrap gap-4">
                   {skills.map((skill, index) => (
                     <p

@@ -1,7 +1,7 @@
 import { assets, infoList } from "@/assets/assets";
 import Image from "next/image";
 
-const AboutMe = () => {
+const AboutMe = ({ isDarkMode }: { isDarkMode: boolean }) => {
   return (
     <div id="about" className="scroll-mt-20 py-10">
       <div className="container">
@@ -24,14 +24,20 @@ const AboutMe = () => {
             </p>
 
             <ul className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
-              {infoList.map(({ title, description, icon }, index) => (
+              {infoList.map(({ title, description, icon, iconDark }, index) => (
                 <li
-                  className="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 transition-all duration-300 hover:shadow-black"
+                  className="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover  hover:dark:bg-darkHover hover:-translate-y-1 transition-all duration-300 hover:shadow-black hover:dark:shadow-white"
                   key={index}
                 >
-                  <Image src={icon} alt={title} className="w-7 mt-3" />
-                  <h3 className="my-4 font-semibold text-gray-700">{title}</h3>
-                  <p className="text-gray-600 text-sm">{description}</p>
+                  <Image
+                    src={isDarkMode ? iconDark : icon}
+                    alt={title}
+                    className="w-7 mt-3"
+                  />
+                  <h3 className="my-4 font-semibold text-gray-700 dark:text-white">
+                    {title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-white text-sm">{description}</p>
                 </li>
               ))}
             </ul>

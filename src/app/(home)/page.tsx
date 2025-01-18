@@ -8,7 +8,12 @@ import Skills from "@/components/home/skills";
 import { useEffect, useState } from "react";
 
 const HomePage = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const savedDarkMode = localStorage.getItem("darkMode");
+  const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  const [isDarkMode, setIsDarkMode] = useState(
+    savedDarkMode ? JSON.parse(savedDarkMode) : prefersDarkMode
+  );
 
   useEffect(() => {
     if (isDarkMode) {
@@ -16,14 +21,15 @@ const HomePage = () => {
     } else {
       document.documentElement.classList.remove("dark");
     }
+    localStorage.setItem("darkMode", JSON.stringify(isDarkMode));
   }, [isDarkMode]);
   return (
     <div>
       <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       <Header />
-      <AboutMe />
+      <AboutMe isDarkMode={isDarkMode} />
       <Skills />
-      <Services />
+      <Services isDarkMode={isDarkMode} />
       <Footer />
     </div>
   );
