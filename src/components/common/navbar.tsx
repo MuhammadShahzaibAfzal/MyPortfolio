@@ -33,7 +33,7 @@ const Navbar = ({
         <Image
           src={assets.header_bg_color}
           alt="Shahzaib's Portfolio Logo"
-          className={`w-full ${isDarkMode ? "hidden" : ""}`}
+          className={`w-full ${isDarkMode ? "hidden" : ""} dark:hidden`}
         />
       </div>
       <header
