@@ -8,8 +8,11 @@ import Skills from "@/components/home/skills";
 import { useEffect, useState } from "react";
 
 const HomePage = () => {
-  const savedDarkMode = window.localStorage.getItem("darkMode");
-  const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const savedDarkMode =
+    typeof window !== "undefined" && window.localStorage.getItem("darkMode");
+  const prefersDarkMode =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
 
   const [isDarkMode, setIsDarkMode] = useState(
     savedDarkMode ? JSON.parse(savedDarkMode) : prefersDarkMode
@@ -17,11 +20,18 @@ const HomePage = () => {
 
   useEffect(() => {
     if (isDarkMode) {
-      document.documentElement.classList.add("dark");
+      if (typeof window !== "undefined") {
+        document.documentElement.classList.add("dark");
+      }
     } else {
-      document.documentElement.classList.remove("dark");
+      if (typeof window !== "undefined") {
+        document.documentElement.classList.remove("dark");
+      }
     }
-    window.localStorage.setItem("darkMode", JSON.stringify(isDarkMode));
+
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem("darkMode", JSON.stringify(isDarkMode));
+    }
   }, [isDarkMode]);
   return (
     <div>
