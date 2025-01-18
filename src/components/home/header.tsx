@@ -6,9 +6,11 @@ const Header = () => {
     <div className="flex container items-center min-h-screen justify-center">
       <div className="flex flex-col items-center max-w-3xl mt-10">
         <Image
-          src={assets.profile_img}
+          src={assets.profileImage}
           alt="Shahzaib's Profile Image"
-          className="w-32 rounded-full"
+          className="rounded-full"
+          width={150}
+          height={150}
         />
         <h3 className="flex mt-4 items-end text-xl md:text-2xl mb-3 font-ovo">
           Hi! I&apos;m Muhammad Shahzaib Afzal{" "}

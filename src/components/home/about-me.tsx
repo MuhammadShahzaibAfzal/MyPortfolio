@@ -10,9 +10,12 @@ const AboutMe = ({ isDarkMode }: { isDarkMode: boolean }) => {
         <div className="flex w-full flex-col lg:flex-row items-center  gap-20 my-20">
           <div className="w-64 sm:w-80 rounded-3xl max-w-none">
             <Image
-              src={assets.user_image}
+              src={assets.profileImage}
               alt="Shahzaib's Profile Image"
-              className="w-full"
+              className="w-full object-contain"
+              width={200}
+              height={200}
+              priority
             />
           </div>
           <div className="flex-1">
