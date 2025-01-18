@@ -3,7 +3,13 @@ import { assets } from "@/assets/assets";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({
+  isDarkMode,
+  setIsDarkMode,
+}: {
+  isDarkMode: boolean;
+  setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -27,7 +33,7 @@ const Navbar = () => {
         <Image
           src={assets.header_bg_color}
           alt="Shahzaib's Portfolio Logo"
-          className="w-full"
+          className={`w-full ${isDarkMode ? "hidden" : ""}`}
         />
       </div>
       <header
@@ -73,8 +79,12 @@ const Navbar = () => {
           </ul>
 
           <div className="flex items-center gap-4">
-            <button>
-              <Image src={assets.moon_icon} alt="Moon Icon" className="w-6" />
+            <button onClick={() => setIsDarkMode(!isDarkMode)}>
+              <Image
+                src={isDarkMode ? assets.sun_icon : assets.moon_icon}
+                alt="Moon Icon"
+                className="w-6"
+              />
             </button>
             <a
               href="#contact"
@@ -153,6 +163,17 @@ const Navbar = () => {
                 }}
               >
                 Services
+              </a>
+            </li>
+            <li>
+              <a
+                href="#contact"
+                className="font-ovo"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                }}
+              >
+                Contact
               </a>
             </li>
           </ul>

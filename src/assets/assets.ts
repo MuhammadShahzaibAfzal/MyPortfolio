@@ -35,6 +35,8 @@ import right_arrow from "./right-arrow.png";
 import send_icon from "./send-icon.png";
 import right_arrow_bold from "./right-arrow-bold.png";
 import right_arrow_bold_dark from "./right-arrow-bold-dark.png";
+import { FaLaptopCode, FaServer } from "react-icons/fa";
+import { RiProjectorLine } from "react-icons/ri";
 
 export const assets = {
   user_image,
@@ -203,4 +205,31 @@ export const toolsData = [
   assets.mongodb,
   assets.figma,
   assets.git,
+];
+
+export const services = [
+  {
+    title: "Full Stack Web Development",
+    subtitle: "Complete End-to-End Web Application Development",
+    description:
+      "I design and build full-stack web applications tailored to your business needs. From crafting responsive and intuitive user interfaces to developing secure and scalable backend systems, I ensure seamless performance.",
+    icon: FaLaptopCode,
+    readMoreLink: "/services/full-stack-web-development",
+  },
+  {
+    title: "API Development & Integration",
+    subtitle: "Efficient Data Flow for Seamless Functionality",
+    description:
+      "I develop custom RESTful APIs and integrate third-party APIs for robust communication between your systems. My expertise includes payment gateways, mapping services, and other external tools to enhance your application's capabilities.",
+    icon: RiProjectorLine,
+    readMoreLink: "/services/api-development-integration",
+  },
+  {
+    title: "Custom Backend Solutions",
+    subtitle: "Scalable Backend Systems for Complex Needs",
+    description:
+      "I deliver powerful backend solutions tailored for scalability and performance. From microservices to cloud integration using Docker and AWS, I build systems designed to grow with your business.",
+    icon: FaServer,
+    readMoreLink: "/services/custom-backend-solutions",
+  },
 ];

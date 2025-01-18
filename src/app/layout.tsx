@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit, Ovo } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/common/navbar";
-import Footer from "@/components/common/footer";
 
 const outFit = Outfit({
   variable: "--font-outfit",
@@ -29,11 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${outFit.variable} ${ovo.variable} antialiased font-outfit leading-8 overflow-x-hidden`}
+        className={`${outFit.variable} ${ovo.variable}  antialiased font-outfit leading-8 overflow-x-hidden dark:bg-darkTheme dark:text-white`}
       >
-        <Navbar />
         <main>{children}</main>
-        <Footer />
       </body>
     </html>
   );
