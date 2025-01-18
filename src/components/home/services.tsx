@@ -1,6 +1,6 @@
 import { services } from "@/assets/assets";
 
-const Services = ({ isDarkMode }: { isDarkMode: boolean }) => {
+const Services = () => {
   return (
     <div id="services" className="scroll-mt-20 py-10">
       <div className="container">
