@@ -1,26 +1,50 @@
 "use client";
 import { assets } from "@/assets/assets";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <>
-      <div className="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%]">
+      <div className={`fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%]`}>
         <Image
           src={assets.header_bg_color}
           alt="Shahzaib's Portfolio Logo"
           className="w-full"
         />
       </div>
-      <header className="w-full fixed  z-10 py-4">
+      <header
+        className={`w-full fixed  z-10 py-4 ${
+          isScrolled ? "bg-white bg-opacity-50 backdrop-blur-lg shadow-sm" : ""
+        }`}
+      >
         <nav className="flex container justify-between items-center">
           <a href="#top">
             <h1 className="text-2xl font-bold logo">Shahzaib</h1>
           </a>
 
-          <ul className="hidden md:flex px-12 py-3 rounded-full gap-6 lg:gap-8 bg-white shadow-sm bg-opacity-50">
+          <ul
+            className={`hidden md:flex px-12 py-3 rounded-full gap-6 lg:gap-8 ${
+              !isScrolled && " bg-white shadow-sm bg-opacity-50"
+            }`}
+          >
             <li>
               <a href="#top" className="font-ovo">
                 Home
@@ -29,6 +53,11 @@ const Navbar = () => {
             <li>
               <a href="#about" className="font-ovo">
                 About Me
+              </a>
+            </li>
+            <li>
+              <a href="#skills" className="font-ovo">
+                Skills
               </a>
             </li>
             <li>
@@ -60,7 +89,7 @@ const Navbar = () => {
 
           {/* Mobile Menu */}
           <ul
-            className={`flex flex-col md:hidden gap-4 py-20 px-10 fixed  top-0 bottom-0 w-64 z-50 bg-rose-50 transition-all duration-500 ${
+            className={`flex flex-col md:hidden gap-4 py-20 px-10 fixed  top-0 bottom-0 w-64 z-50 bg-rose-50 transition-all duration-500 h-screen ${
               isMenuOpen ? "-right-0" : "-right-64"
             }`}
           >
@@ -71,22 +100,58 @@ const Navbar = () => {
               <Image src={assets.close_black} alt="Close Icon" className="w-6" />
             </button>
             <li>
-              <a href="#top" className="font-ovo">
+              <a
+                href="#top"
+                className="font-ovo"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                }}
+              >
                 Home
               </a>
             </li>
+
             <li>
-              <a href="#about" className="font-ovo">
+              <a
+                href="#about"
+                className="font-ovo"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                }}
+              >
                 About Me
               </a>
             </li>
             <li>
-              <a href="#projects" className="font-ovo">
+              <a
+                href="#skills"
+                className="font-ovo"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                }}
+              >
+                Skills
+              </a>
+            </li>
+            <li>
+              <a
+                href="#projects"
+                className="font-ovo"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                }}
+              >
                 Projects
               </a>
             </li>
             <li>
-              <a href="#services" className="font-ovo">
+              <a
+                href="#services"
+                className="font-ovo"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                }}
+              >
                 Services
               </a>
             </li>
