@@ -29,7 +29,7 @@ const HomePage = () => {
       <Header />
       <AboutMe isDarkMode={isDarkMode} />
       <Skills />
-      <Services isDarkMode={isDarkMode} />
+      <Services />
       <Footer />
     </div>
   );
