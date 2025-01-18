@@ -8,7 +8,7 @@ import Skills from "@/components/home/skills";
 import { useEffect, useState } from "react";
 
 const HomePage = () => {
-  const savedDarkMode = localStorage.getItem("darkMode");
+  const savedDarkMode = window.localStorage.getItem("darkMode");
   const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
   const [isDarkMode, setIsDarkMode] = useState(
@@ -21,7 +21,7 @@ const HomePage = () => {
     } else {
       document.documentElement.classList.remove("dark");
     }
-    localStorage.setItem("darkMode", JSON.stringify(isDarkMode));
+    window.localStorage.setItem("darkMode", JSON.stringify(isDarkMode));
   }, [isDarkMode]);
   return (
     <div>
