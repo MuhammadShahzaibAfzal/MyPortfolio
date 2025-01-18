@@ -10,12 +10,9 @@ import { useEffect, useState } from "react";
 const HomePage = () => {
   const savedDarkMode =
     typeof window !== "undefined" && window.localStorage.getItem("darkMode");
-  const prefersDarkMode =
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches;
 
   const [isDarkMode, setIsDarkMode] = useState(
-    savedDarkMode ? JSON.parse(savedDarkMode) : prefersDarkMode
+    savedDarkMode ? JSON.parse(savedDarkMode) : true
   );
 
   useEffect(() => {
