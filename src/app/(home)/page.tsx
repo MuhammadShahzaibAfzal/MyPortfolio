@@ -6,6 +6,7 @@ import Header from "@/components/home/header";
 import Services from "@/components/home/services";
 import Skills from "@/components/home/skills";
 import { useEffect, useState } from "react";
+import Contact from "../../components/home/contact";
 
 const HomePage = () => {
   const savedDarkMode =
@@ -37,6 +38,7 @@ const HomePage = () => {
       <AboutMe isDarkMode={isDarkMode} />
       <Skills />
       <Services />
+      <Contact />
       <Footer />
     </div>
   );
