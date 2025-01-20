@@ -1,5 +1,5 @@
 "use client";
-import Footer from "@/components/common/footer";
+// import Footer from "@/components/common/footer";
 import Navbar from "@/components/common/navbar";
 import AboutMe from "@/components/home/about-me";
 import Header from "@/components/home/header";
@@ -9,28 +9,32 @@ import { useEffect, useState } from "react";
 import Contact from "../../components/home/contact";
 
 const HomePage = () => {
-  const savedDarkMode =
-    typeof window !== "undefined" && window.localStorage.getItem("darkMode");
-
-  const [isDarkMode, setIsDarkMode] = useState(
-    savedDarkMode ? JSON.parse(savedDarkMode) : true
-  );
+  const [isDarkMode, setIsDarkMode] = useState(true); // Default to true
 
   useEffect(() => {
-    if (isDarkMode) {
-      if (typeof window !== "undefined") {
-        document.documentElement.classList.add("dark");
-      }
-    } else {
-      if (typeof window !== "undefined") {
-        document.documentElement.classList.remove("dark");
+    // Get saved theme from localStorage after the component mounts
+    if (typeof window !== "undefined") {
+      const savedDarkMode = window.localStorage.getItem("darkMode");
+      if (savedDarkMode !== null) {
+        setIsDarkMode(JSON.parse(savedDarkMode)); // Update state with saved preference
       }
     }
+  }, []);
 
+  useEffect(() => {
+    // Update the theme based on isDarkMode
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+
+    // Save the theme preference to localStorage
     if (typeof window !== "undefined") {
       window.localStorage.setItem("darkMode", JSON.stringify(isDarkMode));
     }
   }, [isDarkMode]);
+
   return (
     <div>
       <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
@@ -39,8 +43,9 @@ const HomePage = () => {
       <Skills />
       <Services />
       <Contact />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
+
 export default HomePage;
