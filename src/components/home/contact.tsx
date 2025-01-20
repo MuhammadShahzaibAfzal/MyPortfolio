@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
+import { MdMail } from "react-icons/md";
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -86,6 +87,17 @@ const Contact = () => {
           </button>
         </form>
         {status && <p className="text-center mt-4">{status}</p>}
+
+        <div className="flex justify-center flex-col gap-3 mt-10 items-center">
+          {" "}
+          <a href="#top">
+            <h1 className="text-2xl font-bold logo">Shahzaib</h1>
+          </a>
+          <div className="flex items-center gap-3 ">
+            <MdMail className="text-2xl" />
+            <a href="mailto:ishahzaibafzal@gmail.com">ishahzaibafzal@gmail.com</a>
+          </div>
+        </div>
       </div>
     </div>
   );
